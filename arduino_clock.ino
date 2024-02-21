@@ -148,7 +148,8 @@ void loop_clock() {
     in_clock = true;
   }
 
-  if (time_hours == alarm_hours &&
+  if (alarm_set &&
+      time_hours == alarm_hours &&
       time_minutes == alarm_minutes &&
       time_seconds == alarm_seconds) {
     mode = MODE_ALARM;
