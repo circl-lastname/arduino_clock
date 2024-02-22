@@ -551,7 +551,7 @@ void loop_set_tone() {
 
   if (!in_set_tone) {
     digitalWrite(BKLT, HIGH);
-    set_tone_next_beep = millis();
+    set_tone_next_beep = millis() + 500;
     set_tone_even_beep = false;
 
     will_refresh = true;
