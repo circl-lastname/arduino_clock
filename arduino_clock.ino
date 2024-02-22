@@ -248,7 +248,7 @@ void loop_settings() {
     lcd.clear();
 
     lcd.setCursor(0, 0);
-    lcd.print(F("Settings"));
+    lcd.print(F("Menu"));
 
     lcd.setCursor(0, 1);
 
