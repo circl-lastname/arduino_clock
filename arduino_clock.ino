@@ -568,6 +568,8 @@ void loop_set_tone() {
 
   if (check_btn_2()) {
     alarm_tone = (alarm_tone + 1) % 3;
+    set_tone_next_beep = millis();
+    set_tone_even_beep = false;
     will_refresh = true;
   }
 
