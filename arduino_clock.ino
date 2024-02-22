@@ -20,7 +20,7 @@ enum {
 };
 
 uint8_t mode = MODE_CLOCK;
-uint32_t next_time_update = 2000;
+uint32_t next_time_update = 0;
 
 void lcd_write_number(uint8_t value) {
   if (value <= 99) {
@@ -671,11 +671,8 @@ void loop_alarm() {
 void setup() {
   pinMode(BTN_1, INPUT_PULLUP);
   pinMode(BTN_2, INPUT_PULLUP);
-
   pinMode(SPKR, OUTPUT);
-
   pinMode(BKLT, OUTPUT);
-
   pinMode(LED, OUTPUT);
 
   digitalWrite(LED, LOW);
@@ -691,6 +688,8 @@ void setup() {
 
   tone(SPKR, 500, 250);
   delay(2000);
+
+  next_time_update = millis() + 1000;
 }
 
 void loop() {
