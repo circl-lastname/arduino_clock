@@ -9,7 +9,7 @@ This is a 24-hour alarm clock sketch which supports multiple alarms and saves se
 * `SPKR` -> Piezo speaker <- Ground
 * `BKLT` -> Resistor (1k used) -> LCD `LED+` pin
 * LCD `VSS` pin <- Ground
-* LCD `VDD` pin <- +5V
+* `LCD_VDD` -> LCD `VDD` pin
 * LCD `V0` pin <- Ground
 * `LCD_RS` -> LCD `RS` pin
 * LCD `R/W` pin <- Ground

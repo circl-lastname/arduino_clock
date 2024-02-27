@@ -17,6 +17,7 @@ typedef struct {
 interval_t time_update_interval = { 1000 };
 
 #include "storage.h"
+#include "display.h"
 #include "bklt.h"
 #include "spkr.h"
 #include "btn.h"
@@ -42,10 +43,12 @@ void setup() {
   pinMode(BTN_RIGHT, INPUT_PULLUP);
   pinMode(SPKR, OUTPUT);
   pinMode(BKLT, OUTPUT);
+  pinMode(LCD_VDD, OUTPUT);
   pinMode(LED, OUTPUT);
-  lcd.begin(16, 2);
 
   digitalWrite(LED, LOW);
+
+  display_set(true);
   bklt_set(true);
 
   lcd.clear();
