@@ -23,5 +23,5 @@ void dummy_btn_right() {
 }
 
 void dummy_time_updated() {
-  
+
 }
