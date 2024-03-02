@@ -12,8 +12,11 @@ void alarm_enter() {
 }
 
 void alarm_update() {
-  if (tone_update(&alarm_interval, &alarm_even_beep)) {
-    bklt_set(alarm_even_beep);
+  if (interval_check(&alarm_interval)) {
+    tone_play(alarm_even_beep);
+    bklt_set(!alarm_even_beep);
+
+    alarm_even_beep = !alarm_even_beep;
   }
 }
 

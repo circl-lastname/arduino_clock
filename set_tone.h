@@ -10,7 +10,10 @@ void set_tone_enter() {
 }
 
 void set_tone_update() {
-  tone_update(&set_tone_interval, &set_tone_even_beep);
+  if (interval_check(&set_tone_interval)) {
+    tone_play(set_tone_even_beep);
+    set_tone_even_beep = !set_tone_even_beep;
+  }
 
   if (set_tone_will_redraw) {
     lcd.clear();

@@ -9,29 +9,20 @@ void tone_set(uint8_t value) {
   }
 }
 
-bool tone_update(interval_t* interval, bool* even) {
-  bool check = interval_check(interval);
-
-  if (check) {
-    if (!(*even)) {
-      switch (tone_get()) {
-        case 0:
-          tone(SPKR, 125);
-        break;
-        case 1:
-          tone(SPKR, 250);
-        break;
-        case 2:
-          tone(SPKR, 500);
-        break;
-      }
-
-      *even = true;
-    } else {
-      spkr_stop();
-      *even = false;
+void tone_play(bool even) {
+  if (!even) {
+    switch (tone_get()) {
+      case 0:
+        tone(SPKR, 125);
+      break;
+      case 1:
+        tone(SPKR, 250);
+      break;
+      case 2:
+        tone(SPKR, 500);
+      break;
     }
+  } else {
+    spkr_stop();
   }
-
-  return check;
 }
