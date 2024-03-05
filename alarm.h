@@ -1,18 +1,21 @@
 interval_t alarm_interval = { 500 };
-bool alarm_even_beep = false;
+bool alarm_even_beep = true;
 
 void alarm_enter() {
-  alarm_interval.next_trigger = millis();
-  alarm_even_beep = false;
+  interval_reset(&alarm_interval);
+  alarm_even_beep = true;
 
   lcd.clear();
 
   lcd.setCursor(5, 0);
   lcd.print(F("Alarm!"));
+
+  tone_play(false);
+  bklt_set(true);
 }
 
 void alarm_update() {
-  while (interval_check(&alarm_interval)) {
+  if (interval_check(&alarm_interval)) {
     tone_play(alarm_even_beep);
     bklt_set(!alarm_even_beep);
 
